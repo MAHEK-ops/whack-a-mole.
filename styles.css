@@ -1,0 +1,226 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: url('grass.png') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    color: #ff5733;  
+    font-size: 80px;
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.7), 0 0 25px #ff9f00, 0 0 5px #ff0000;
+    transition: all 0.3s ease;
+}
+
+h1 i {
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+h1 .fa-hammer {
+    font-size: 90px;
+    animation: shake 0.5s ease-in-out infinite alternate;
+    margin-right: 10px;
+}
+
+h1 .fa-paw {
+    font-size: 70px;
+    margin-left: 10px;
+    animation: pawJump 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(-10deg);
+    }
+}
+
+@keyframes pawJump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+h1:hover {
+    transform: scale(1.1);  
+    color: #b1974e;  
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.9), 0 0 25px #eb373d, 0 0 5px #ff0000;
+}
+
+h2 {
+    color: #fff;
+    font-size: 24px;
+}
+
+#game-container {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);  
+    gap: 20px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.hole {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.doghouse {
+    width: 100%;
+    height: 100%;
+    background-image: url('doghouse.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    bottom: 0;
+}
+
+.dog {
+    width: 120px;
+    position: absolute;
+    bottom: -120px;
+    left: 40px;
+    display: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.dog.show {
+    display: block;
+    animation: dogPopUp 1s ease-out;
+    bottom: 0;
+}
+
+@keyframes dogPopUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.paw {
+    width: 50px;
+    position: absolute;
+    transform: rotate(-30deg);
+    pointer-events: none;
+}
+
+#score-board {
+    margin: 20px;
+    font-size: 24px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#timer {
+    margin-top: 10px;
+    font-size: 24px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.start-btn {
+    background-color: #ff5733;
+    color: #fff;
+    font-size: 20px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+.start-btn:hover {
+    background-color: #b1974e;
+    transform: scale(1.1);
+}
+
+/* Game Over Popup Styles */
+.game-over-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.game-over-popup.show {
+    display: flex;
+    opacity: 1;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    animation: popupAnimate 0.5s ease-out;
+}
+
+@keyframes popupAnimate {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.play-again-btn {
+    background-color: #ff5733;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+.play-again-btn:hover {
+    background-color: #b1974e;
+    transform: scale(1.1);
+}
+
+

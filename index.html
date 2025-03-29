@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-a-Dog</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 id="game-title">
+        <i class="fas fa-hammer"></i> 
+        Whack-a-Dog 
+        <i class="fas fa-paw"></i> 
+    </h1>
+    <h2 id="score">Score: 0</h2>
+    <h2 id="timer">Time Left: 20s</h2>
+    <div id="game-container"></div>
+    <audio id="popSound" src="pop.wav"></audio>
+    <button id="startButton" class="start-btn">Start Game</button>
+
+    <div id="game-over-popup" class="game-over-popup">
+        <div class="popup-content">
+            <h2>Time's Up!</h2>
+            <p><span id="final-score">0</span></p>
+            <button id="play-again" class="play-again-btn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
